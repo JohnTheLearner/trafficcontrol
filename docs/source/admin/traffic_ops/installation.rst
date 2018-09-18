@@ -69,7 +69,7 @@ To begin the install:
 
 3. Install Postgresql
 
-  Install the postgresql 9.6 yum repository access. ::
+  If using a separate server/VM for Traffic Ops and Postgres, install the postgresql 9.6 yum repository access from the traffic ops server/VM so it can connect to the remote db. ::
 
     to-$ sudo su -
     to-# yum -y install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
@@ -82,6 +82,7 @@ To begin the install:
   Install some additional packages that it depends on that were not installed as dependecies in the previous step (these are for the 2.0.0 install, this may change, but the pre-installs won't hurt): ::
 
     to-# yum -y install git
+    to-# yum -y install gcc
     to-# wget -q https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
     to-# tar -C /usr/local -xzf go1.8.3.linux-amd64.tar.gz
     to-# PATH=$PATH:/usr/local/go/bin             # go bins are needed in the path for postinstall
