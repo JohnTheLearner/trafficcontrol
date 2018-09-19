@@ -225,15 +225,15 @@ To begin the install:
     +----------------------------------------------------+----------------------------------------------------------------------------------------------+
 
 
-Traffic Ops is now installed!
+Traffic Ops is now installed!  Profiles now need to be installed within Traffic Ops to complete its configuration.
 
 
-**To complete the Traffic Ops Setup See:** :ref:`rl-to-default-profiles`
+**Tnstall Traffic Ops profiles:** :ref:`rl-to-default-profiles`
 
 
 Upgrading Traffic Ops
 =====================
-To upgrade:
+To upgrade (if needed):
 
 #. Enter the following command:``service traffic_ops stop``
 #. Enter the following command:``yum upgrade traffic_ops``
