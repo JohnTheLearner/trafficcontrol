@@ -50,11 +50,11 @@ To begin the install:
     pg-$ /usr/pgsql-9.6/bin/initdb -A md5 -W #-W forces the user to provide a superuser (postgres) password
 
 
-  Edit ``/var/lib/pgsql/9.6/data/pg_hba.conf`` to allow your traffic ops app server access. For example if you are going to install traffic ops on ``99.33.99.1`` add::
+  Edit ``/var/lib/pgsql/9.6/data/pg_hba.conf`` to allow your traffic ops app server access. For example if you are going to install traffic ops on ``99.33.99.1`` add it per the below.  Note that you cannot use an FQDN here for remote host(s) accessing the system.  Also note the CIDR notation of the host(s) given access. ::
 
     host  all   all     99.33.99.1/32 md5
 
-  to the appropriate section of this file. Edit the ``/var/lib/pgsql/9.6/data/postgresql.conf`` file to add the approriate listen_addresses or ``listen_addresses = '*'``, set ``timezone = 'UTC'``,  and start the database: ::
+  to the appropriate section of this file. Edit the ``/var/lib/pgsql/9.6/data/postgresql.conf`` file to add the approriate listen_addresses or ``listen_addresses = '*'``, set ``timezone = 'UTC'``,  and start the database.  Note that you can use an FQDN for the listen addresses instead of IP: ::
 
     pg-$ exit
     pg-# systemctl enable postgresql-9.6
@@ -73,6 +73,8 @@ To begin the install:
 
     to-$ sudo su -
     to-# yum -y install https://download.postgresql.org/pub/repos/yum/9.6/redhat/rhel-7-x86_64/pgdg-centos96-9.6-3.noarch.rpm
+    to-$ yum -y install postgresql96    # install psql client
+
 
 4. Install the rpm built in step 2. ::
 
@@ -82,11 +84,12 @@ To begin the install:
   Install some additional packages that it depends on that were not installed as dependecies in the previous step (these are for the 2.0.0 install, this may change, but the pre-installs won't hurt): ::
 
     to-# yum -y install git
-    to-# yum -y install gcc
+    to-# yum -y install gcc    # install to support below ../goose
     to-# wget -q https://storage.googleapis.com/golang/go1.8.3.linux-amd64.tar.gz
     to-# tar -C /usr/local -xzf go1.8.3.linux-amd64.tar.gz
     to-# PATH=$PATH:/usr/local/go/bin             # go bins are needed in the path for postinstall
     to-# go get bitbucket.org/liamstask/goose/cmd/goose
+
 
   At this point you should be able to login to the database from the ``to`` host to the ``pg`` host like: ::
 
