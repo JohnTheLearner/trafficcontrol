@@ -23,11 +23,23 @@ The following are requirements to ensure an accurate set up:
 
 **Installing Traffic Portal**
 
+	TP from Jenkins:
 	- Download the Traffic Portal RPM from `Apache Jenkins <https://builds.apache.org/job/trafficcontrol-master-build/>`_ or build the Traffic Portal RPM from source (./pkg -v traffic_portal_build).
 	- Copy the Traffic Portal RPM to your server
+	- Proceed to 'General' section...
+	
+	TP from yum:
+	- List versions available: yum search --show-duplicates traffic_portal
+	- Proceed to 'General' section...
+	
+	General:
 	- curl --silent --location https://rpm.nodesource.com/setup_6.x | sudo bash -
 	- sudo yum install -y nodejs
-	- sudo yum install -y <traffic_portal rpm>
+	
+	TP install:
+	- if downloaded or built RPM:  sudo yum install -y <traffic_portal rpm>
+	- if desired version is available in the yum repo:  yum install -y traffic_portal-3.0.0-9322.d32addf9.el7.x86_64
+
 
 **Configuring Traffic Portal**
 
