@@ -168,6 +168,17 @@ These parameters should be set to reflect the local environment.
 
 After running the postinstall script, Traffic Ops has the following profiles pre-loaded:
 
+TODO:  Confirm then update below table as the profiles showing from a 9/18/18 install of TO ver. 3.0.0-9322.d32addf9.el7 are actually as follows:
+
+    1. GLOBAL
+    2. INFLUXDB
+    3. RIAK_ALL
+    4. TRAFFIC_ANALYTICS
+    5. TRAFFIC_OPS
+    6. TRAFFIC_OPS_DB
+    7. TRAFFIC_PORTAL
+    8. TRAFFIC_STATS
+
 +----------+-------------------------------------------------------------------------------------------------+
 |   Name   |                                           Description                                           |
 +==========+=================================================================================================+
