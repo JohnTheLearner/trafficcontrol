@@ -47,13 +47,19 @@ The following are requirements to ensure an accurate set up:
 	- update /opt/traffic_portal/public/traffic_portal_properties.json (if upgrade, reconcile traffic_portal_properties.json with traffic_portal_properties.json.rpmnew and then delete traffic_portal_properties.json.rpmnew)
 	- [OPTIONAL] update /opt/traffic_portal/public/resources/assets/css/custom.css (to customize traffic portal skin)
 
+
+**Generate (Self-Signed) Certificate**
+	- openssl genrsa -out key.pem 2048
+	- openssl req -new -key key.pem -out csr.pem
+	- openssl x509 -req -days 2048 -in csr.pem -signkey key.pem -out cert.pem
+
 **Starting Traffic Portal**
 
-	- sudo service traffic_portal start
+	- sudo systemctl start traffic_portal
 
 **Stopping Traffic Portal**
 
-	- sudo service traffic_portal stop
+	- sudo systemctl stop traffic_portal
 
 
 
