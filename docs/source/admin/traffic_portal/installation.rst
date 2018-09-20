@@ -48,10 +48,16 @@ The following are requirements to ensure an accurate set up:
 	- [OPTIONAL] update /opt/traffic_portal/public/resources/assets/css/custom.css (to customize traffic portal skin)
 
 
+For a production environment, one should generate/use a certificate from a Certificate Authority (CA), but for a development or testing environment, a self-signed cert' might be appropriate.
+
 **Generate (Self-Signed) Certificate**
 	- openssl genrsa -out key.pem 2048
 	- openssl req -new -key key.pem -out csr.pem
 	- openssl x509 -req -days 2048 -in csr.pem -signkey key.pem -out cert.pem
+
+**Enable Traffic Portal Service**
+
+	- sudo systemctl enable traffic_portal
 
 **Starting Traffic Portal**
 
