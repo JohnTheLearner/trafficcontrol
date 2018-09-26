@@ -262,8 +262,13 @@ Regions, Locations and Cache Groups
 ===================================
 All servers have to have a `location`, which is their physical location. Each location is part of a `region`, and each region is part of a `division`. For Example, ``Denver`` could be a location in the ``Mile High`` region and that region could be part of the ``West`` division. Enter your divisions first in  `Misc->Divisions`, then enter the regions in `Misc->Regions`, referencing the divisions entered, and finally, enter the physical locations in `Misc->Locations`, referencing the regions entered. 
 
-All servers also have to be part of a `cache group`. A cache group is a logical grouping of caches, that don't have to be in the same physical location (in fact, usually a cache group is spread across minimally 2 physical Locations for redundancy purposes), but share geo coordinates for content routing purposes. JvD to add more.
+All servers also have to be part of a `cache group`. A cache group is a logical grouping of caches, that don't have to be in the same physical location (in fact, usually a cache group is spread across minimally 2 physical Locations for redundancy purposes), but share geo coordinates for content routing purposes. 
 
+Cache groups should reference parents from edge, to mid, up to origins.  There can be layers within a categorical level (edge, etc.) depending on operational objectives.  A root origin shouldn't have a parent, but should have a heirarchy of decendents of equal or lower categorical tier.
+
+Configuring cache groups in Traffic Ops is required prior to configuring other traffic control components, such as RIAK.
+
+TODO: add more detail.
 
 
 Configuring Content Purge
