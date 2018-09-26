@@ -92,6 +92,8 @@ Login to one of the riak servers in the cluster as root (any will do)
 		``riak-admin security add-user riakuser password=<RiakUserPassword> groups=keysusers``
 
 	4. Grant access for admin and riakuser
+		
+		Do not substitute actual passwords for the below.  This simply sets the authentication type.
 
 		``riak-admin security add-source riakuser 0.0.0.0/0 password``
 
