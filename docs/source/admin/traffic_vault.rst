@@ -52,8 +52,10 @@ The following steps need to be performed on each Riak server in the cluster:
 * Add a line at the bottom of the config for tlsv1
 	- tls_protocols.tlsv1 = on
 
-* Once the config file has been updated restart riak
-	- ``/etc/init.d/riak restart``
+* Enable, start, and verify riak is running once the config file has been updated
+	- ``systemctl enable riak``
+	- ``systemctl start riak``
+	- ``systemctl status riak``
 
 * Validate server is running by going to the following URL:
  	- https://<serverHostname>:8088/ping
@@ -143,7 +145,7 @@ On Each Riak Server:
 	* look for search and change ``search = off`` to ``search = on``
 
 3. Restart Riak so search is on
-	* ``service riak restart``
+	* ``systemctl restart riak``
 
 One time configuration:
 
