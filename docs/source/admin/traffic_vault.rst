@@ -85,7 +85,7 @@ Login to one of the riak servers in the cluster as root (any will do)
 		``riak-admin security add-group keysusers``
 	3. Add users
 
-	 .. Note:: username and password should be stored in /opt/traffic_ops/app/conf/<environment>/riak.conf
+	 .. Note:: You should store username and password in /opt/traffic_ops/app/conf/<environment>/riak.conf on your instance of Traffic Ops
 	 ..
 
 		``riak-admin security add-user admin password=<AdminPassword> groups=admins``
